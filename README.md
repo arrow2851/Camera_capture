@@ -2,11 +2,11 @@
 
 A native Android Camera2 interval-photo app that takes photos automatically while a laptop displays timed pages.
 
-**Controls:** initial delay (seconds until first photo), interval between photos, number of photos, START and STOP. **Zoom v1.1:** 0.6× requested by default where supported; 0.6×, 1×, 2× buttons and slider. The screen reports the true minimum if Android hides the ultrawide lens. Zoom affects preview and saved JPEGs. Photos remain on the phone under `Pictures/DSCIntervalCamera`. No upload or network access.
+**Controls (v1.2):** initial delay (0–3600 seconds), interval (1–600 seconds; minimum **1s**), photo count (1–**3000**), START and STOP. A 3,000-shot session at 1 second takes roughly 50 minutes; use adequate free storage, battery/power, and test short captures first. **Zoom v1.1:** 0.6× requested by default where supported; 0.6×, 1×, 2× buttons and slider. The screen reports the true minimum if Android hides the ultrawide lens. Zoom affects preview and saved JPEGs. Photos remain on the phone under `Pictures/DSCIntervalCamera`. No upload or network access.
 
 **Download APK:** Open the [Actions tab](https://github.com/arrow2851/Camera_capture/actions/workflows/build-apk.yml), open the latest successful `Build installable APK` run, and download the `DSC-Interval-Camera-debug-APK` artifact. Extract its ZIP to get `app-debug.apk`.
 
-**Source:** This repository stores the v1.0 Android base project as `android-source.tar.xz` and the v1.1 camera update as `zoom-change.patch.xz`. GitHub Actions extracts the base, applies the patch, then builds the APK. To inspect locally, run `tar -xJf android-source.tar.xz` from a new empty directory.
+**Source:** The repo contains `android-source.tar.xz` (v1.0), `zoom-change.patch.xz` (v1.1), and `tools/set_capture_limits.py` (v1.2). GitHub Actions extracts the base, applies the zoom patch and capture-limit update, then builds the APK. To inspect locally, run `tar -xJf android-source.tar.xz` from a new empty directory.
 
 **Build:** Java 17, Gradle 8.9, Android SDK 35, Android Gradle Plugin 8.7.3. For manual builds, extract the source archive then run `gradle assembleDebug`.
 
