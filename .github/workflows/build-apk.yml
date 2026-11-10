@@ -20,6 +20,9 @@ jobs:
         run: |
           tar -xJf android-source.tar.xz
           xz -dc zoom-change.patch.xz | git apply -
+          python3 tools/set_capture_limits.py
+          grep -F 'interval < 1 || interval > 600' app/src/main/java/com/example/dscintervalcamera/MainActivity.java
+          grep -F 'count < 1 || count > 3000' app/src/main/java/com/example/dscintervalcamera/MainActivity.java
           test -f app/src/main/java/com/example/dscintervalcamera/MainActivity.java
           test -f app/build.gradle
 
