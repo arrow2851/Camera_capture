@@ -19,6 +19,7 @@ jobs:
       - name: Extract native Android project
         run: |
           tar -xJf android-source.tar.xz
+          xz -dc zoom-change.patch.xz | git apply -
           test -f app/src/main/java/com/example/dscintervalcamera/MainActivity.java
           test -f app/build.gradle
 
